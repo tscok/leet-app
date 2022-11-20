@@ -7,6 +7,7 @@
   "license": "MIT",
   "type": "module",
   "dependencies": {
+    "@mui/icons-material": "^5.10.14",
     "express": "^4.18.2",
     "node-fetch": "^3.3.0"
   },
