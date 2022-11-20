@@ -1,8 +1,8 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 
-import EmployeeCard from './EmployeeCard'
 import { Employee } from '../types'
+import ListView from './ListView'
 
 const mockEmployee: Employee = {
   email: 'john.smith@domain.com',
@@ -22,14 +22,14 @@ const mockEmployee: Employee = {
   twitter: null,
 }
 
-describe('EmployeeCard', () => {
-  it('should render employee data', () => {
-    render(<EmployeeCard {...mockEmployee} />)
-    const img: HTMLImageElement = screen.getByRole('img')
-    expect(img.src).toContain('totally-real-img-url')
+describe('ListView', () => {
+  it('should render mock user', () => {
+    render(<ListView data={[mockEmployee]} />)
+    expect(screen.getByLabelText(/employee list view/i)).toBeInTheDocument()
+    expect(screen.getByText(/profile/i)).toBeInTheDocument()
+    expect(screen.getByText(/name/i)).toBeInTheDocument()
+    expect(screen.getByText(/office/i)).toBeInTheDocument()
     expect(screen.getByText(/john smith/i)).toBeInTheDocument()
     expect(screen.getByText(/stockholm/i)).toBeInTheDocument()
-    expect(screen.getByLabelText(/linkedIn icon button/i)).toBeInTheDocument()
-    expect(screen.queryByLabelText(/twitter icon button/i)).not.toBeInTheDocument()
   })
 })
