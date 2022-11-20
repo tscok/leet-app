@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
+import useEmployees from './hooks/useEmployees'
 
 function App() {
+  const { data, status } = useEmployees()
+
+  useEffect(() => {
+    console.log({ data, status })
+  }, [data, status])
+
   return (
     <div className="App">
       <header className="App-header">
