@@ -13,7 +13,7 @@ import GitHubIcon from '@mui/icons-material/GitHub'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import TwitterIcon from '@mui/icons-material/Twitter'
 
-import { Employee } from '../hooks/useEmployees'
+import { Employee } from '../types'
 
 type Platforms = Pick<Employee, 'gitHub' | 'linkedIn' | 'twitter'>
 
@@ -29,7 +29,7 @@ const EmployeeCard = ({ name, imagePortraitUrl, office, ...data }: Employee) => 
       alt={name}
       component="img"
       height="150"
-      image={imagePortraitUrl}
+      image={imagePortraitUrl || ''}
       sx={{ objectFit: 'contain' }}
     />
     <CardContent>
