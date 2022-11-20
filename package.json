@@ -1,0 +1,18 @@
+{
+  "name": "leet-app",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": "git@github.com:tscok/leet-app.git",
+  "author": "Mikael Carlsson <mikael.carlsson@getflowbox.com>",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "scripts": {
+    "start": "nodemon app.js"
+  }
+}
