@@ -5,7 +5,7 @@ import { Employee } from '../types'
 type Status = 'error' | 'loading' | 'success'
 
 export default function useEmployees() {
-  const [data, setData] = useState<Employee[]>([])
+  const [employees, setEmployees] = useState<Employee[]>([])
   const [status, setStatus] = useState<Status>('loading')
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export default function useEmployees() {
           throw new Error(`Fetch failed with status ${response.status}`)
         }
 
-        setData(data)
+        setEmployees(data)
         setStatus('success')
       } catch (error) {
         setStatus('error')
@@ -26,5 +26,5 @@ export default function useEmployees() {
     })()
   }, [])
 
-  return { data, status }
+  return { employees, status }
 }

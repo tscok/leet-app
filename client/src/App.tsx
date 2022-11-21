@@ -21,14 +21,14 @@ import ViewControls, { View } from './components/ViewControls'
 import SortControls, { Ascending, sortCallback } from './components/SortControls'
 
 function App() {
-  const { data, status } = useEmployees()
+  const { employees, status } = useEmployees()
   const [view, setView] = useState<View>('grid')
   const [textFilter, setTextFilter] = useState('')
   const [location, setLocation] = useState('All')
   const [ascending, setAscending] = useState<Ascending>({ name: true, office: true })
 
-  const offices = new Set(data.map((d) => d.office))
-  let filtered = [...data]
+  const offices = new Set(employees.map((d) => d.office))
+  let filtered = [...employees]
 
   if (textFilter) {
     filtered = filtered.filter(({ name }) => name.toLowerCase().includes(textFilter))

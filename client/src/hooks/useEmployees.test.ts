@@ -6,6 +6,6 @@ describe('useEmployees', () => {
   it('should return initial data and status', () => {
     const { result } = renderHook(() => useEmployees())
     expect(result.current.status).toBe('loading')
-    expect(result.current.data).toEqual([])
+    expect(result.current.employees).toEqual([])
   })
 })
